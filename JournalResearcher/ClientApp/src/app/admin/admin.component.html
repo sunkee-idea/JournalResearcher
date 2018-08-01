@@ -1,0 +1,79 @@
+
+<div class="container_gray_bg">
+  <div class="container margin_60">
+    <div class="row">
+      <div class="col-md-9">
+        <h3 class="text-center text-primary" *ngIf="isLoading"><i class="icon icon-spinner animate-spin icon-spin4"></i>Loading....</h3>
+
+
+        <div class="strip_all_courses_list wow fadeIn" data-wow-delay="0.1s" *ngFor="let thesis of theses">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="img_list">
+                <a href="javascript:void(0)">
+                  <img src="img/course_1.jpg" alt="">
+                  <div class="short_info">
+                    <h3>{{thesis.title}}</h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="clearfix visible-xs-block">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="course_list_desc">
+                <h3>
+                  <strong>{{thesis.title}}</strong>
+                </h3>
+                <p>
+                  {{thesis.abstract.substring(0,700)}}
+                </p>
+                <ul class="add_info margin_30">
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="pe-7s-add-user"></i></span>
+                      <div class="tooltip-content">
+                        {{thesis.author}}
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="pe-7s-light"></i></span>
+                      <div class="tooltip-content">
+                        {{thesis.supervisorName}}
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                      <span class="tooltip-item"><i class="pe-7s-medal"></i></span>
+                      <div class="tooltip-content">
+                        Most Requested Course
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              <div class="details_list_col ">
+                <div>
+                  <button *ngIf="thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{thesis.isApproved ? 'Approve' : 'Rejected'}}</button>
+                  <button *ngIf="!thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{!thesis.isApproved ? 'Waiting to be reviewed' : 'Waiting for Approval'}}</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!--End strip -->
+
+
+
+      </div><!--End col-md-9 -->
+
+
+
+    </div><!--End row -->
+  </div><!--End container -->
+</div><!--End container_gray_bg -->

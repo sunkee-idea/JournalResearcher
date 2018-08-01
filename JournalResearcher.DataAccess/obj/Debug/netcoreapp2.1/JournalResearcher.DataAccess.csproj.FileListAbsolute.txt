@@ -1,0 +1,11 @@
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.deps.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.runtimeconfig.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.runtimeconfig.dev.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.dll
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.pdb
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.AssemblyInfo.cs
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.dll
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.pdb
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.csprojAssemblyReference.cache

@@ -1,0 +1,118 @@
+<app-nav-menu></app-nav-menu>
+<app-intro-banner></app-intro-banner>
+<div class="container_gray_bg">
+  <!--<div id="position">
+    <div class="container">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Category</a></li>
+        <li>Page active</li>
+      </ul>
+    </div>
+  </div>--><!-- Position -->
+  <div class="container margin_60">
+    <div class="row">
+
+      <div class="col-md-9 col-md-offset-1">
+        <div class="box_style_1">
+          <form  id="apply_online" [formGroup]="signupform" (ngSubmit)="signupHandle()">
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Sign up</h3>
+              <p>Note:: All Fields are required</p>
+            </div>
+            <div class="wrapper_indent">
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <div *ngIf="notificationType=='success'" [class]="notificationType=='success' ? 'alert alert-success' : ''">{{notificationMsg}}</div>
+                  <div *ngIf="notificationType=='error'" [class]="notificationType=='error' ? 'alert alert-danger' : ''">{{notificationMsg}}</div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('firstName').errors && signupform.get('firstName').touched}">
+                    <label>First name</label>
+                    <input type="text" class="form-control styled required" id="name_apply" formControlName="firstName" placeholder="First name">
+                    <small class="help-block" *ngIf="signupform.get('firstName').hasError('required') && signupform.get('firstName').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('lastName').errors && signupform.get('lastName').touched}">
+                    <label>Last name</label>
+                    <input type="text" class="form-control styled required" id="lastname_apply" formControlName="lastName" placeholder="Last name">
+                    <small class="help-block" *ngIf="signupform.get('lastName').hasError('required') && signupform.get('lastName').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+              </div><!-- End row -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('email').errors && signupform.get('email').touched}">
+                    <label>Email</label>
+                    <input type="email" class="form-control styled required" id="email_apply" formControlName="email" placeholder="youremail@domain.com">
+                    <small class="help-block" *ngIf="signupform.get('email').hasError('email') && signupform.get('email').touched">
+                      Invalid email address
+                    </small>
+                    <small class="help-block" *ngIf="signupform.get('email').hasError('required') && signupform.get('email').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('phone').errors && signupform.get('phone').touched}">
+                    <label>Phone number</label>
+                    <input type="tel" class="form-control styled required" id="phone_apply" formControlName="phone" placeholder="+0043 XXX XXXXX">
+                    <small class="help-block" *ngIf="signupform.get('phone').hasError('required') && signupform.get('phone').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+              </div><!-- End row -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('password').errors && signupform.get('password').touched}">
+                    <label>Password</label>
+                    <input type="password" class="form-control styled required" id="pass_apply" formControlName="password" placeholder="Password">
+                    <span class="help-block" *ngIf="signupform.get('password').hasError('required') &&  signupform.get('password').touched">
+                      This field can't be blank
+                    </span>
+                    <small class="help-block" *ngIf="signupform.get('password').hasError('invalidPassword') &&  signupform.get('password').touched">
+                      Password must contain at least one Uppercase letter, digits and special character (@1!#$)
+                    </small>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signupform.get('confirmpassword').errors && signupform.get('confirmpassword').touched}">
+                    <label>Confirm Password</label>
+                    <input type="password" class="form-control styled required" id="password_apply" formControlName="confirmpassword" placeholder="Confirm Password">
+                    <span class="help-block" *ngIf="signupform.get('confirmpassword').hasError('required') &&  signupform.get('confirmpassword').touched">
+                      This field can't be blank
+                    </span>
+                    <small class="help-block" *ngIf="signupform.errors?.mismatch">
+                      Password do not match
+                    </small>
+                  </div>
+                </div>
+              </div><!-- End row -->
+
+            </div>
+
+
+            <hr class="styled_2">
+
+            <div class="wrapper_indent">
+       
+              <p align="right"><button type="submit" [disabled]="!signupform.valid" class="button"><i [class]="!isLoading? 'icon icon-export-outline': 'icon icon-spin5 animate-spin' "></i> {{isLoading? '': 'Sign up'}} </button></p>
+            </div>
+          </form>
+        </div>
+      </div>
+ 
+    </div><!--End row -->
+  </div><!--End container -->
+</div><!--End container_gray_bg -->
+
+<app-footer></app-footer>

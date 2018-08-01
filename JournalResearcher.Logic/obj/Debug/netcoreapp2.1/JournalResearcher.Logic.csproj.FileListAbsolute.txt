@@ -1,0 +1,14 @@
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.Logic.deps.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.Logic.runtimeconfig.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.Logic.runtimeconfig.dev.json
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.Logic.dll
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.Logic.pdb
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.dll
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\bin\Debug\netcoreapp2.1\JournalResearcher.DataAccess.pdb
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.csprojAssemblyReference.cache
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.AssemblyInfoInputs.cache
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.AssemblyInfo.cs
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.csproj.CopyComplete
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.dll
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.Logic\obj\Debug\netcoreapp2.1\JournalResearcher.Logic.pdb

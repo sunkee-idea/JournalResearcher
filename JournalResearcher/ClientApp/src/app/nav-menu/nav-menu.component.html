@@ -1,0 +1,79 @@
+<!--<div class='main-nav'>-->
+<!--  <div class='navbar navbar-inverse'>-->
+<!--    <div class='navbar-header'>-->
+<!--      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>-->
+<!--        <span class='sr-only'>Toggle navigation</span>-->
+<!--        <span class='icon-bar'></span>-->
+<!--        <span class='icon-bar'></span>-->
+<!--        <span class='icon-bar'></span>-->
+<!--      </button>-->
+<!--      <a class='navbar-brand' [routerLink]='["/"]'>WebApplication1</a>-->
+<!--    </div>-->
+<!--    <div class='clearfix'></div>-->
+<!--    <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>-->
+<!--      <ul class='nav navbar-nav'>-->
+<!--        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>-->
+<!--          <a [routerLink]='["/"]' (click)='collapse()'>-->
+<!--            <span class='glyphicon glyphicon-home'></span> Home-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li [routerLinkActive]='["link-active"]'>-->
+<!--          <a [routerLink]='["/counter"]' (click)='collapse()'>-->
+<!--            <span class='glyphicon glyphicon-education'></span> Counter-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li [routerLinkActive]='["link-active"]'>-->
+<!--          <a [routerLink]='["/fetch-data"]' (click)='collapse()'>-->
+<!--            <span class='glyphicon glyphicon-th-list'></span> Fetch data-->
+<!--          </a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div id="preloader">-->
+<!--  <div class="pulse"></div>-->
+<!--</div>$1$ Pulse Preloader #1#-->
+<!-- Header================================================== -->
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-3">
+        <div id="logo">
+          <a [routerLink]='["/home"]'><img src="img/logo.png" width="125" height="40" alt="Atena" data-retina="true"></a>
+        </div>
+      </div>
+      <nav class="col-md-9 col-sm-9 col-xs-9">
+        <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+        <div class="main-menu">
+          <div id="header_menu">
+            <img src="img/logo_mobile.png" width="125" height="40" alt="Atena" data-retina="true">
+          </div>
+          <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
+          <ul *ngIf="!isLoggedIn()">
+            <li>
+              <a [routerLink]='["/login"]'>Login</a>
+            </li>
+            <li>
+              <a [routerLink]='["/register"]'>Register</a>
+            </li>
+          </ul>
+          <ul *ngIf="isLoggedIn()">
+
+
+            <li>
+              <a [routerLink]='["/applicant/create"]'>Upload Thesis</a>
+            </li>
+            <li >
+              <a (click)="logout()">Logout</a>
+            </li>
+
+          </ul>
+        </div><!-- End main-menu -->
+      </nav>
+    </div>
+  </div><!-- container -->
+</header><!-- End Header -->
+
+

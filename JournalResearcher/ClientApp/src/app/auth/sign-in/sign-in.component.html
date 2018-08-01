@@ -1,0 +1,67 @@
+<app-nav-menu></app-nav-menu>
+<app-intro-banner></app-intro-banner>
+<div class="container_gray_bg">
+  <div class="container margin_60">
+    <div class="row">
+
+      <div class="col-md-9 col-md-offset-1">
+        <div class="box_style_1">
+          <form id="apply_online" [formGroup]="signinform" (ngSubmit)="signinHandle()">
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Sign In</h3>
+              <p>Note:: All Fields are required</p>
+            </div>
+            <div class="wrapper_indent">
+          
+              <div class="row">
+                <div class="col-md-12">
+                  <div *ngIf="notificationType=='success'" [class]="notificationType=='success' ? 'alert alert-success' : ''">{{notificationMsg}}</div>
+                  <div *ngIf="notificationType=='error'" [class]="notificationType=='error' ? 'alert alert-danger' : ''">{{notificationMsg}}</div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signinform.get('email').errors && signinform.get('email').touched}">
+                    <label>Email</label>
+                    <input type="email" class="form-control styled required" id="email_apply" formControlName="email" placeholder="youremail@domain.com">
+                    <small class="help-block" *ngIf="signinform.get('email').hasError('email') && signinform.get('email').touched">
+                      Invalid email address
+                    </small>
+                    <small class="help-block" *ngIf="signinform.get('email').hasError('required') && signinform.get('email').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': signinform.get('password').errors && signinform.get('password').touched}">
+                    <label>Password</label>
+                    <input type="password" class="form-control styled required" id="pass_apply" formControlName="password" placeholder="Password">
+                    <span class="help-block" *ngIf="signinform.get('password').hasError('required') &&  signinform.get('password').touched">
+                      This field can't be blank
+                    </span>
+                    <small class="help-block" *ngIf="signinform.get('password').hasError('invalidPassword') &&  signinform.get('password').touched">
+                      Password must contain at least one Uppercase letter, digits and special character (@1!#$)
+                    </small>
+
+                  </div>
+                </div>
+              </div><!-- End row -->
+              
+
+            </div>
+
+
+            <hr class="styled_2">
+
+            <div class="wrapper_indent">
+
+              <p align="right"><button type="submit" [disabled]="!signinform.valid" class="button"><i [class]="!isloggingin? 'icon icon-export-outline': 'icon icon-spin5 animate-spin' "></i> {{isloggingin? '': 'Sign in'}}</button></p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div><!--End row -->
+  </div><!--End container -->
+</div><!--End container_gray_bg -->
+
+<app-footer></app-footer>

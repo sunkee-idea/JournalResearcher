@@ -1,0 +1,88 @@
+Arguments: 
+  C:\laragon\bin\nodejs\node.exe C:\laragon\bin\yarn\bin\yarn.js add packages
+
+PATH: 
+  C:\Users\Sunkee\AppData\Local\Yarn\config\global\node_modules\.bin;C:\Users\Sunkee\AppData\Roaming\npm;C:\Users\Sunkee\AppData\Roaming\Composer\vendor\bin;C:\laragon\bin\mysql\mariadb-10.2.3-win32\bin;C:\laragon\bin\php\php-7.1.1-Win32-VC14-x86;C:\laragon\bin\composer;C:\laragon\bin\apache\httpd-2.4.25-win32-VC14\bin;C:\laragon\bin\redis\redis-x64-3.2.100;C:\laragon\bin\memcached\memcached-1.4.5;C:\laragon\bin\nodejs;C:\laragon\bin\yarn\bin;C:\laragon\bin\notepad++;C:\laragon\bin\telnet;C:\laragon\bin\ngrok;C:\laragon\bin\sendmail;C:\laragon\bin\winscp;C:\laragon\bin\git\bin;C:\laragon\bin\git\cmd;C:\laragon\bin\git\usr\bin;C:\laragon\bin\git\mingw32\bin;C:\laragon\bin;C:\laragon\usr\bin;C:\laragon\bin\putty;;C:\laragon\bin\cmder\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_131\bin;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Android\sdk\tools;C:\Android\sdk\platform-tools;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files\Git\cmd;C:\laragon\bin\php\php-7.1.1-Win32-VC14-x86;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Yarn\bin;C:\Users\Sunkee\Documents\GitHub\flutter\bin;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Sunkee\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\Sunkee\AppData\Local\Programs\Python\Python35\;C:\Users\Sunkee\AppData\Roaming\Composer\vendor\bin;C:\Users\Sunkee\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MongoDB\Server\3.4\bin;C:\Users\Sunkee\AppData\Local\Yarn\bin;C:\Program Files\Heroku\bin;C:\Users\Sunkee\AppData\Local\GitHubDesktop\bin;C:\Users\Sunkee\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\Sunkee\AppData\Roaming\npm;;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\laragon\bin\cmder\;
+
+Yarn version: 
+  0.19.1
+
+Node version: 
+  6.9.5
+
+Platform: 
+  win32 ia32
+
+npm manifest: 
+  {
+    "name": "journal-researcher",
+    "version": "0.0.0",
+    "license": "MIT",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve --extract-css",
+      "build": "ng build --extract-css",
+      "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
+      "test": "ng test",
+      "lint": "ng lint",
+      "e2e": "ng e2e"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "^5.2.0",
+      "@angular/common": "^5.2.0",
+      "@angular/compiler": "^5.2.0",
+      "@angular/core": "^5.2.0",
+      "@angular/forms": "^5.2.0",
+  
+      "@angular/platform-browser": "^5.2.0",
+      "@angular/platform-browser-dynamic": "^5.2.0",
+      "@angular/router": "^5.2.0",
+      "@angular/platform-server": "^5.2.0",
+      "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
+      "aspnet-prerendering": "^3.0.1",
+      "bootstrap": "^3.3.7",
+      "core-js": "^2.4.1",
+      "ngx-bootstrap": "^2.0.5",
+      "ngx-toastr": "^8.8.0",
+      "jwt-decode": "^2.2.0",
+      "@auth0/angular-jwt": "^1.1.0",
+      "rxjs": "^5.5.6",
+      "zone.js": "^0.8.19"
+    },
+    "devDependencies": {
+      "@angular/cli": "~1.7.0",
+      "@angular/compiler-cli": "^5.2.0",
+      "@angular/language-service": "^5.2.0",
+      "@types/jasmine": "~2.8.3",
+      "@types/jasminewd2": "~2.0.2",
+      "@types/node": "~6.0.60",
+      "codelyzer": "^4.0.1",
+      "jasmine-core": "~2.8.0",
+      "jasmine-spec-reporter": "~4.2.1",
+      "karma": "~2.0.0",
+      "karma-chrome-launcher": "~2.2.0",
+      "karma-coverage-istanbul-reporter": "^1.2.1",
+      "karma-jasmine": "~1.1.0",
+      "karma-jasmine-html-reporter": "^0.2.2",
+      "protractor": "~5.1.2",
+      "ts-node": "~4.1.0",
+      "tslint": "~5.9.1",
+      "typescript": "~2.5.3"
+    },
+    "optionalDependencies": {
+      "node-sass": "^4.9.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: connect ETIMEDOUT 104.16.24.35:443
+      at Object.exports._errnoException (util.js:1022:11)
+      at exports._exceptionWithHostPort (util.js:1045:20)
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1087:14)

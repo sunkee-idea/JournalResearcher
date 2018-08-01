@@ -1,0 +1,126 @@
+<div class="container_gray_bg">
+  <!--<div id="position">
+    <div class="container">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Category</a></li>
+        <li>Page active</li>
+      </ul>
+    </div>
+  </div>-->
+  <!-- Position -->
+  <div class="container margin_60">
+    <div class="row">
+
+      <div class="col-md-9 col-md-offset-1">
+        <div class="box_style_1">
+          <form id="apply_online" [formGroup]="addthesisform" (ngSubmit)="uploadThesis()">
+            <div class="indent_title_in">
+              <i class="pe-7s-user"></i>
+              <h3>Sign up</h3>
+              <p>Note:: All Fields are required</p>
+            </div>
+            <div class="wrapper_indent">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('title').errors && addthesisform.get('title').touched}">
+                    <label>Title</label>
+                    <input type="text" class="form-control styled required" id="name_apply" formControlName="title" placeholder="Title of Thesis">
+                    <small class="help-block" *ngIf="addthesisform.get('title').hasError('required') && addthesisform.get('title').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('author').errors && addthesisform.get('author').touched}">
+                    <label>Name Of Authors</label>
+                    <input type="text" class="form-control styled required" id="name_apply" formControlName="author" placeholder="Name of Authors">
+                    <small class="help-block" *ngIf="addthesisform.get('author').hasError('required') && addthesisform.get('author').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+              </div><!-- End row -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('supervisorName').errors && addthesisform.get('supervisorName').touched}">
+                    <label>Supervised By</label>
+                    <input type="text" class="form-control styled required" id="email_apply" formControlName="supervisorName" placeholder="Name Of Supervisor">
+                   
+                    <small class="help-block" *ngIf="addthesisform.get('supervisorName').hasError('required') && addthesisform.get('supervisorName').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('thesisDate').errors && addthesisform.get('thesisDate').touched}">
+                    <label>Date of Thesis</label>
+                    <input type="date" class="form-control styled required" id="phone_apply" formControlName="thesisDate" placeholder="Date Of Thesis">
+                    <small class="help-block" *ngIf="addthesisform.get('thesisDate').hasError('required') && addthesisform.get('thesisDate').touched">
+                      This field can't be blank
+                    </small>
+                  </div>
+                </div>
+              </div><!-- End row -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('abstract').errors && addthesisform.get('abstract').touched}">
+                    <label>Abstract</label>
+                    <textarea class="form-control" formControlName="abstract" placeholder="Abstract"></textarea>
+                   
+                    <span class="help-block" *ngIf="addthesisform.get('abstract').hasError('required') &&  addthesisform.get('abstract').touched">
+                      This field can't be blank
+                    </span>
+                  
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('references').errors && addthesisform.get('references').touched}">
+                    <label>Upload Thesis File</label>
+                    <span class="help-block">Note:: The File Format that can be uploaded are <i>.pdf , .docx, .doc</i></span>
+                    <input type="file" #ThesisUploader accept=".docx|.pdf|.doc" class="form-control" id="thesisfile"/>
+                   
+                    <span class="help-block" *ngIf="addthesisform.get('references').hasError('required') &&  addthesisform.get('references').touched">
+                      This field can't be blank
+                    </span>
+                  
+
+                  </div>
+                </div>
+              
+              </div><!-- End row -->
+
+              <div class="row">
+                
+                <div class="col-md-12">
+                  <div class="form-group" [ngClass]="{'has-error': addthesisform.get('references').errors && addthesisform.get('references').touched}">
+                    <label>References</label>
+                    <textarea class="form-control" formControlName="references" placeholder="References"></textarea>
+                   
+                    <span class="help-block" *ngIf="addthesisform.get('references').hasError('required') &&  addthesisform.get('references').touched">
+                      This field can't be blank
+                    </span>
+                  
+
+                  </div>
+                </div>
+              
+              </div><!-- End row -->
+
+            </div>
+
+
+            <hr class="styled_2">
+
+            <div class="wrapper_indent">
+
+              <p align="right"><button type="submit" [disabled]="!addthesisform.valid" class="button"><i class="icon  icon-export-outline"></i>  Submit</button></p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div><!--End row -->
+  </div><!--End container -->
+</div><!--End container_gray_bg -->
