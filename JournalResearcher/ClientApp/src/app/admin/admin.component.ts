@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../core/service/server.service';
+import { IThesis } from '../core/models/IThesis';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  constructor() { }
+  theses:IThesis[];
+  isLoading:boolean = false;
+  constructor(private apiService:ServerService) { }
 
   ngOnInit() {
+    this.isLoading = true;
+    this.apiService.getAllThesis().subscribe((res) => {
+        this.isLoading = false;
+        this.theses = res;
+        console.log(this.theses);
+      },
+      error => {
+        this.isLoading = false;
+        console.log(error);
+      });
   }
 
 }

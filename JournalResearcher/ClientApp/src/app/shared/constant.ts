@@ -8,7 +8,10 @@ export const routes ={
   REGISTER: BASEURL + "auth/signup",
 
   SUBMITTHESIS: BASEURL +"journal/create",
-  GETTHESIS: BASEURL +"journal/get/"
+  GETTHESIS: BASEURL + "journal/get/",
+
+  GETALLTHESIS: BASEURL + "journal/getThesis",
+  APPROVE:BASEURL + "joural/approveThesis"
   
 
 

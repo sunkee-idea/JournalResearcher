@@ -29,6 +29,20 @@ export class ServerService {
       catchError(ErrorHandler.handleError));
   }
 
+  getAllThesis(): Observable<IThesis[]> {
+    return this.http.get<IThesis[]>(routes.GETALLTHESIS).pipe(map(theses => {
+        return theses;
+      }),
+      catchError(ErrorHandler.ErrorServerConnection));
+  }
+
+  approveThesis(data:any): Observable<IThesis> {
+    return this.http.post<IThesis>(routes.APPROVE, data).pipe(map(thesis => {
+        return thesis;
+      }),
+      catchError(ErrorHandler.ErrorServerConnection));
+  }
+
   getThesis(id: string): Observable<IThesis[]> {
    // let param = new HttpParams().set('page', page.toFixed(1)){ params: param };
     return this.http.get<IThesis[]>(routes.GETTHESIS + id).pipe(map(thesis => {

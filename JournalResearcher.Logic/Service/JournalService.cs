@@ -18,8 +18,9 @@ namespace JournalResearcher.Logic.Service
         IEnumerable<JournalItem> QueryProduct(int page, int count, JournalFilter filterExpression = null,
             string orderByExpression = null);
 
-        JournalViewModel ApproveJournal(int id);
+        JournalItem ApproveJournal(ApproveViewModel model);
         IEnumerable<JournalItem> GetJournalForApplicant(string userId);
+        IEnumerable<JournalItem> GetAllThesis();
         bool IfJournalAlreadyExist(string title);
     }
 
@@ -66,14 +67,14 @@ namespace JournalResearcher.Logic.Service
             return ProcessQuery(entities);
         }
 
-        public JournalViewModel ApproveJournal(int id, string action)
+        public JournalItem ApproveJournal(ApproveViewModel model)
         {
-            var entity = GetJournal(id);
-            if (action == "Approve") entity.IsApproved = true;
-            else if (action == "Reject") entity.IsApproved = false;
+            var entity = GetJournal(model.Id);
+            if (model.Action == "Approve") entity.IsApproved = true;
+            else if (model.Action == "Reject") entity.IsApproved = false;
             _repository.Update(entity);
             _unitOfWork.SaveChanges();
-            return _mapper.Map<Journal, JournalViewModel>(entity);
+            return _mapper.Map<Journal, JournalItem>(entity);
         }
 
 
@@ -82,6 +83,12 @@ namespace JournalResearcher.Logic.Service
         {
             var entities = _repository.Table.Include(x => x.Applicant).Where(x => x.Applicant.Id == userId).ToList();
             // var entities = _repository.Fetch(x => x.Applicant.Id == userId).Include(x => x.Applicant).ToList();
+            return ProcessQuery(entities);
+        }
+
+        public IEnumerable<JournalItem> GetAllThesis()
+        {
+            var entities = _repository.GetAll();
             return ProcessQuery(entities);
         }
 

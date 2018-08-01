@@ -6,6 +6,7 @@ using System;
 using System.Data;
 using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace JournalResearcher.Controllers
 {
@@ -23,6 +24,22 @@ namespace JournalResearcher.Controllers
             _journalService = journalService;
             _hostingEnvironment = hostingEnvironment;
             _uploadService = uploadService;
+        }
+
+
+        [HttpGet("getThesis")]
+        public IActionResult GetThesis()
+        {
+            return Ok(_journalService.GetAllThesis());
+        }
+
+
+        [HttpPost("approveThesis")]
+        public IActionResult ApproveThesis([FromBody] ApproveViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            return Ok(_journalService.ApproveJournal);
         }
 
         // GET: api/Journal/userId

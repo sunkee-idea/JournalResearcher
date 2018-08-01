@@ -38,6 +38,14 @@ namespace JournalResearcher.DataAccess.ViewModel
 
     }
 
+    public class ApproveViewModel
+    {
+        [Required]
+        public int Id { get; set; }
+        [Required]
+        public string Action { get; set; }
+    }
+
     public class JournalItem : JournalViewModel
     {
         public DateTime DateSubmitted { get; set; }
