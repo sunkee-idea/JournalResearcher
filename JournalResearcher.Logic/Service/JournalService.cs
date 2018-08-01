@@ -66,14 +66,17 @@ namespace JournalResearcher.Logic.Service
             return ProcessQuery(entities);
         }
 
-        public JournalViewModel ApproveJournal(int id)
+        public JournalViewModel ApproveJournal(int id, string action)
         {
             var entity = GetJournal(id);
-            entity.IsApproved = true;
+            if (action == "Approve") entity.IsApproved = true;
+            else if (action == "Reject") entity.IsApproved = false;
             _repository.Update(entity);
             _unitOfWork.SaveChanges();
             return _mapper.Map<Journal, JournalViewModel>(entity);
         }
+
+
 
         public IEnumerable<JournalItem> GetJournalForApplicant(string userId)
         {
