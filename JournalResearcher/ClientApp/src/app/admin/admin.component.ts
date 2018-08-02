@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-    this.apiService.getAllThesis().subscribe((res) => {
+    this.apiService.getThesis("403920-dedejd-3rf3j2k").subscribe((res) => {
         this.isLoading = false;
         this.theses = res;
         console.log(this.theses);

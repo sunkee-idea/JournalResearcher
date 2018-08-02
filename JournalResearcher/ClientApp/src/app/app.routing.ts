@@ -13,12 +13,7 @@ const routes: Routes = [
  
   {
     path: 'admin',
-    loadChildren: './admin/admin.module#AdminModule',
-    runGuardsAndResolvers: 'always',
-    canActivate: [RoleGuardService],
-    data: {
-      expectedRole: 'User'
-    }
+    loadChildren: './admin/admin.module#AdminModule'
 
   },
   {

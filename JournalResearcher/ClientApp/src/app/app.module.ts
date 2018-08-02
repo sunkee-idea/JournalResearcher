@@ -22,7 +22,6 @@ import { DataKeeperService } from './core/service/data-keeper.service';
 import { ServerService } from './core/service/server.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ApplicantModule } from './applicant/applicant.module';
-import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user/user-add/user-add.component';
 import { RouterModule } from '@angular/router';
@@ -41,7 +40,6 @@ import { RouterModule } from '@angular/router';
     SignInComponent,
     IntroBannerComponent,
     FooterComponent,
-    AdminComponent,
     UserComponent,
     UserAddComponent
   ],

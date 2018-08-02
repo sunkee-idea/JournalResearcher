@@ -26,20 +26,20 @@ namespace JournalResearcher.Controllers
             _uploadService = uploadService;
         }
 
-
+        [Route("getThesis")]
         [HttpGet("getThesis")]
         public IActionResult GetThesis()
         {
             return Ok(_journalService.GetAllThesis());
         }
 
-
+        [Route("approveThesis")]
         [HttpPost("approveThesis")]
         public IActionResult ApproveThesis([FromBody] ApproveViewModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            return Ok(_journalService.ApproveJournal);
+            return Ok();
         }
 
         // GET: api/Journal/userId
