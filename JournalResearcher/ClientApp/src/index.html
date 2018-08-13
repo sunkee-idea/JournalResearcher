@@ -25,17 +25,22 @@
 
 </head>
 <body>
-<app-root>Loading...</app-root>
-<script src="assets/js/jquery-1.11.2.min.js"></script>
-<script src="assets/js/common_scripts_min.js"></script>
-<script src="assets/js/functions.js"></script>
-<script src="assets/js/icheck.js"></script>
-<script>  
-  $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue'
-  });
-</script>
+ 
+<app-root>
+  <div id="preloader">
+    <div class="pulse"></div>
+  </div><!-- Pulse Preloader -->
+</app-root>
+  <script src="assets/js/jquery-1.11.2.min.js"></script>
+  <script src="assets/js/common_scripts_min.js"></script>
+  <script src="assets/js/functions.js"></script>
+  <script src="assets/js/icheck.js"></script>
+  <script>
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue'
+    });
+  </script>
 
 </body>
 </html>

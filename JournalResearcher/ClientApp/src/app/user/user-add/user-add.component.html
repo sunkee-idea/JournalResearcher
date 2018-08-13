@@ -1,14 +1,11 @@
+<!--<app-intro-banner [data]="Thesis" [action]="Submit "></app-intro-banner>-->
+<div class="sub_header bg_1">
+  <div id="intro_txt">
+    <h1><strong>Thesis</strong></h1>
+    <p>Submit New Thesis</p>
+  </div>
+</div> <!--End sub_header -->
 <div class="container_gray_bg">
-  <!--<div id="position">
-    <div class="container">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Category</a></li>
-        <li>Page active</li>
-      </ul>
-    </div>
-  </div>-->
-  <!-- Position -->
   <div class="container margin_60">
     <div class="row">
 
@@ -22,6 +19,10 @@
             </div>
             <div class="wrapper_indent">
               <div class="row">
+                <div class="col-md-12">
+                  <div *ngIf="notificationType=='success'" [class]="notificationType=='success' ? 'alert alert-success' : ''"><i [class]="notificationType =='success' ? 'fa fa-check' : ''"></i>{{notificationMsg}}</div>
+                  <div *ngIf="notificationType=='error'" [class]="notificationType=='error' ? 'alert alert-danger' : ''"><i [class]="notificationType =='error' ? 'fa fa-times' : ''"></i>{{notificationMsg}}</div>
+                </div>
                 <div class="col-md-6">
                   <div class="form-group" [ngClass]="{'has-error': addthesisform.get('title').errors && addthesisform.get('title').touched}">
                     <label>Title</label>
@@ -79,7 +80,7 @@
                   <div class="form-group" [ngClass]="{'has-error': addthesisform.get('thesisfile').errors && addthesisform.get('thesisfile').touched}">
                     <label>Upload Thesis File</label>
                     <span class="help-block">Note:: The File Format that can be uploaded are <i>.pdf , .docx, .doc</i></span>
-                    <input type="file" #ThesisUploader accept=".docx" (change)="onFileChange($event)" class="form-control" id="thesisfile" />
+                    <input type="file" #thesisUploader accept=".docx,.pdf,.doc" (change)="onFileChange($event)" class="form-control" id="thesisfile" />
 
                     <span class="help-block" *ngIf="addthesisform.get('thesisfile').hasError('required') &&  addthesisform.get('thesisfile').touched">
                       This field can't be blank

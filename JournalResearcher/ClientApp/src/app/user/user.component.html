@@ -1,10 +1,21 @@
 
+<div class="sub_header bg_1">
+  <div id="intro_txt">
+    <h1><strong>Thesis</strong></h1>
+    <p>My Theses</p>
+  </div>
+</div> <!--End sub_header -->
 <div class="container_gray_bg">
   <div class="container margin_60">
     <div class="row">
       <div class="col-md-9">
         <h3 class="text-center text-primary" *ngIf="isLoading"><i class="icon icon-spinner animate-spin icon-spin4"></i>Loading....</h3>
-     
+        <div *ngIf="notificationMsg" class="col-md-7 col-md-offset-2">
+          <h3 class="text-danger">{{notificationMsg}}</h3>
+          <button class="btn btn-xs btn-danger"><i class="icon icon-spin4"></i></button>
+        </div>
+
+
 
         <div class="strip_all_courses_list wow fadeIn" data-wow-delay="0.1s" *ngFor="let thesis of theses">
           <div class="row">
@@ -22,10 +33,11 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="course_list_desc">
-                <h3><strong>{{thesis.title}}</strong>
+                <h3>
+                  <strong>{{thesis.title}}</strong>
                 </h3>
                 <p>
-                  {{thesis.abstract.substring(0,700)}}
+                  {{thesis.abstract.substring(0,300)}}
                 </p>
                 <ul class="add_info margin_30">
                   <li>
@@ -58,9 +70,9 @@
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="details_list_col ">
                 <div>
-                  <button *ngIf="thesis.isApproved"  [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{thesis.isApproved ? 'Approve' : 'Rejected'}}</button>
-                  <button *ngIf="!thesis.isApproved"  [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{!thesis.isApproved ? 'Waiting to be reviewed' : 'Waiting for Approval'}}</button>
-               
+                  <button *ngIf="thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{thesis.isApproved ? 'Approve' : 'Rejected'}}</button>
+                  <button *ngIf="!thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{!thesis.isApproved ? 'Waiting to be reviewed' : 'Waiting for Approval'}}</button>
+
                 </div>
               </div>
             </div>
@@ -71,7 +83,7 @@
 
       </div><!--End col-md-9 -->
 
-  
+
 
     </div><!--End row -->
   </div><!--End container -->

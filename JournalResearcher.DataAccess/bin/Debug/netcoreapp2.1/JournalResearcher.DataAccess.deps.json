@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "0bacc04fcae67b0e5ed78e71ee51b4c71ae7f5a7"
+    "signature": "32dc2b5b163e1afbaefd917295c38795bbbb7f9a"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,7 +10,8 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "5.0.1",
           "LinqKit.Microsoft.EntityFrameworkCore": "1.1.15",
-          "Microsoft.NETCore.App": "2.1.0"
+          "Microsoft.NETCore.App": "2.1.0",
+          "OctoPack": "3.6.3"
         },
         "runtime": {
           "JournalResearcher.DataAccess.dll": {}
@@ -68,7 +69,8 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0"
         }
-      }
+      },
+      "OctoPack/3.6.3": {}
     }
   },
   "libraries": {
@@ -146,6 +148,13 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "OctoPack/3.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SAKPv9edH3tmVh5jHxWaGS8Z3HhPHz4m6ussmeE1Kgmn3nrkL+az+xuDxV8SjEkVxn+dXm4+Jqw3NJjGj0e4PA==",
+      "path": "octopack/3.6.3",
+      "hashPath": "octopack.3.6.3.nupkg.sha512"
     }
   }
 }

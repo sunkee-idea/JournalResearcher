@@ -49,7 +49,9 @@ namespace JournalResearcher.DataAccess.ViewModel
     public class JournalItem : JournalViewModel
     {
         public DateTime DateSubmitted { get; set; }
-        public UserModel Applicant { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        /// public UserModel Applicant { get; set; }
 
     }
 
@@ -61,7 +63,7 @@ namespace JournalResearcher.DataAccess.ViewModel
         public static JournalFilter Deserializer(string whereCondition)
         {
             JournalFilter filter = null;
-            if (string.IsNullOrEmpty(whereCondition))
+            if (!string.IsNullOrEmpty(whereCondition))
             {
                 filter = JsonConvert.DeserializeObject<JournalFilter>(whereCondition);
             }

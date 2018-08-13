@@ -3,7 +3,6 @@ using JournalResearcher.DataAccess.Data;
 using JournalResearcher.DataAccess.Data.Models;
 using JournalResearcher.DataAccess.QueryObject;
 using JournalResearcher.DataAccess.ViewModel;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,14 +43,14 @@ namespace JournalResearcher.DataAccess.Repository
             Expression<Func<Journal, bool>> expression, OrderExpression orderExpression)
         {
             var order = ProcessOrderFunc(orderExpression);
-            return Fetch(expression, order, page, count).Include(x => x.Applicant);
+            return Fetch(expression, order, page, count, includeProperties: "Applicant");
         }
         public static Func<IQueryable<Journal>, IOrderedQueryable<Journal>> ProcessOrderFunc(
             OrderExpression orderDeserilizer = null)
         {
             IOrderedQueryable<Journal> Orderfunc(IQueryable<Journal> queryable)
             {
-                var orderQueryable = queryable.OrderBy(x => x.DateSubmitted).ThenBy(x => x.Id).ThenBy(x => x.Title);
+                var orderQueryable = queryable.OrderBy(x => x.Title).ThenBy(x => x.Id).ThenBy(x => x.Title);
                 return orderQueryable;
             }
 
@@ -76,10 +75,10 @@ namespace JournalResearcher.DataAccess.Repository
                     And(c => c.SupervisorName.Contains(filter.SupervisorName));
                 if (!string.IsNullOrWhiteSpace(filter.Author))
                     And(c => c.Author == filter.Author);
-                if (!string.IsNullOrWhiteSpace(filter.Applicant.FirstName))
-                    And(c => c.Applicant.FirstName.ToString() == filter.Applicant.FirstName);
-                if (!string.IsNullOrWhiteSpace(filter.Applicant.LastName))
-                    And(c => c.Applicant.LastName == filter.Applicant.LastName);
+                if (!string.IsNullOrWhiteSpace(filter.FirstName))
+                    And(c => c.Applicant.FirstName == filter.FirstName);
+                if (!string.IsNullOrWhiteSpace(filter.LastName))
+                    And(c => c.Applicant.LastName == filter.LastName);
                 if (filter.DateCreatedFrom.HasValue)
                     And(c => c.DateSubmitted >= filter.DateCreatedFrom.Value);
                 if (filter.DateCreatedTo.HasValue)

@@ -1,17 +1,14 @@
 ﻿using JournalResearcher.DataAccess.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace JournalResearcher.DataAccess.Data
 {
-   public class ApplicationDbContext :IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions options)
-            :base(options)
+            : base(options)
         {
         }
 
@@ -34,5 +31,7 @@ namespace JournalResearcher.DataAccess.Data
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Journal> Journals { get; set; }
+        public DbSet<RejectJournal> RejectJournals { get; set; }
+
     }
 }

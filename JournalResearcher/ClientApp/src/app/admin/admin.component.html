@@ -1,10 +1,36 @@
-
+<app-nav-menu></app-nav-menu>
+<app-intro-banner></app-intro-banner>
+<jaspero-confirmations></jaspero-confirmations>
 <div class="container_gray_bg">
   <div class="container margin_60">
     <div class="row">
       <div class="col-md-9">
-        <h3 class="text-center text-primary" *ngIf="isLoading"><i class="icon icon-spinner animate-spin icon-spin4"></i>Loading....</h3>
-
+        <div class="row">
+          <div class="col-md-12">
+            <form>
+              <pre>{{datepickerModel | json}}</pre>
+              <div class="col-md-6">
+                <button class="button_outline" (click)="filter()">Filter</button>
+                <label class="control-label">From </label>
+                <input type="text" class="form-control" placeholder="Datepicker" name="DateCreatedFrom" bsDatepicker [(ngModel)]="datepickerModel.DateCreatedFrom" />
+              </div>
+              <div class="col-md-6">
+                <label class="control-label">To </label>
+                <input type="text" name="DateCreatedTo" bsDatepicker [(ngModel)]="datepickerModel.DateCreatedTo" class="form-control" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+        <br />
+        <h3 class="text-center text-primary" *ngIf="isLoading">
+          <i class="icon icon-spinner animate-spin icon-spin4"></i>Loading....
+        </h3>
+        <div *ngIf="notificationMsg" class="col-md-7 col-md-offset-2">
+          <h3 class="text-danger">{{notificationMsg}}</h3>
+          <button class="btn btn-xs btn-danger"><i class="icon icon-spin4"></i></button>
+        </div>
 
         <div class="strip_all_courses_list wow fadeIn" data-wow-delay="0.1s" *ngFor="let thesis of theses">
           <div class="row">
@@ -59,15 +85,33 @@
             <div class="col-lg-3 col-md-3 col-sm-3">
               <div class="details_list_col ">
                 <div>
-                  <button *ngIf="thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{thesis.isApproved ? 'Approve' : 'Rejected'}}</button>
-                  <button *ngIf="!thesis.isApproved" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{!thesis.isApproved ? 'Waiting to be reviewed' : 'Waiting for Approval'}}</button>
+                  <button *ngIf="thesis.isApproved" (click)="confirmAction(thesis)" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">{{thesis.isApproved ? 'Approved' : 'Rejected'}}</button>
+                  <button *ngIf="!thesis.isApproved" (click)="confirmAction(thesis)" [class]="thesis.isApproved ?'button_outline btn-success':'button_outline btn-danger'">Reject</button>
 
                 </div>
               </div>
             </div>
+
           </div>
         </div><!--End strip -->
-
+        <!-- pager -->
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(1)">First</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)">Next</a>
+          </li>
+          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)">Last</a>
+          </li>
+        </ul>
 
 
       </div><!--End col-md-9 -->

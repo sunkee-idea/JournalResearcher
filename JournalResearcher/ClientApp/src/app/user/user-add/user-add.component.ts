@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/service/guard/auth.service';
 import { ServerService } from '../../core/service/server.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-add',
@@ -10,17 +11,19 @@ import { ServerService } from '../../core/service/server.service';
 })
 export class UserAddComponent implements OnInit {
   addthesisform: FormGroup;
-  isLoading :boolean = false;
-  @ViewChild("ThesisUploader") ThesisUploader: ElementRef;
-  constructor(private fb: FormBuilder,private auth:AuthService,private apiService:ServerService) { }
+  isLoading: boolean = false;
+  notificationType: string;
+  notificationMsg:string;
+  @ViewChild("thesisUploader") thesisUploader: ElementRef;
+  constructor(private fb: FormBuilder, private auth: AuthService, private apiService: ServerService, private toastrService:ToastrService) { }
 
   ngOnInit() {
-    if (this.ThesisUploader.nativeElement.value = '') {
+    if (this.thesisUploader.nativeElement.value === '') {
       alert('File cannot be empty');
     }
-    this.ValidateField();
+    this.validateField();
   }
-  ValidateField() {
+  validateField() {
     this.addthesisform = this.fb.group({
       title: ['', Validators.required],
       abstract: ['', Validators.required],
@@ -36,9 +39,9 @@ export class UserAddComponent implements OnInit {
     let reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
       let file = event.target.files[0];
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(file);
       reader.onload = () => {
-        console.log(reader.result)
+        console.log(reader.result);
       }
     }
     ;
@@ -68,15 +71,21 @@ export class UserAddComponent implements OnInit {
     let formModel = this.prepareUser();
     this.apiService.submitThesis(formModel).subscribe((res) => {
       console.log(res);
+      this.notificationType = "success";
+        this.notificationMsg = "Submission Successful. We\'ll get back to you shortly";
       this.isLoading = false;
-    }, error => {
-      this.isLoading = false;
-      console.log(error);
-    })
+      this.addthesisform.reset();
+        this.clearFile();
+      },
+      error => {
+        this.isLoading = false;
+        this.notificationType = "error";
+        this.notificationMsg = error.error;
+      });
   }
 
   clearFile() {
     this.addthesisform.get('thesisfile').setValue(null);
-    this.ThesisUploader.nativeElement.value = '';
+    this.thesisUploader.nativeElement.value = '';
   }
 }

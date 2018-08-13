@@ -1,12 +1,12 @@
-﻿using System;
+﻿using JournalResearcher.DataAccess.Data;
+using LinqKit;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using JournalResearcher.DataAccess.Data;
-using LinqKit;
-using Microsoft.EntityFrameworkCore;
 
 namespace JournalResearcher.DataAccess.Repository
 {
@@ -17,7 +17,7 @@ namespace JournalResearcher.DataAccess.Repository
         protected readonly DbSet<T> DbSet;
 
 
-        public Repository(ApplicationDbContext context,IUnitOfWork unitOfWork)
+        public Repository(ApplicationDbContext context, IUnitOfWork unitOfWork)
         {
             Context = context;
             _unitOfWork = unitOfWork;
@@ -52,11 +52,19 @@ namespace JournalResearcher.DataAccess.Repository
         }
 
         public IQueryable<T> Fetch(Expression<Func<T, bool>> predicate,
-            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int? page = null, int? pageSize = null)
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, int? page = null, int? pageSize = null, string includeProperties = "")
         {
             IQueryable<T> query = DbSet;
             if (orderBy != null)
                 query = orderBy(query);
+            if (includeProperties != "")
+            {
+                foreach (var includeProperty in includeProperties.Split(new char[] { ',' }))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
             if (predicate != null)
                 query = query.AsExpandable().Where(predicate);
             if (page == null || pageSize == null) return query;
@@ -97,7 +105,7 @@ namespace JournalResearcher.DataAccess.Repository
         //Asynchronous Tasks
 
 
-       
+
 
         public virtual async Task<IEnumerable<T>> GetAllEntity()
         {
@@ -140,5 +148,7 @@ namespace JournalResearcher.DataAccess.Repository
 
             return true;
         }
+
+
     }
 }

@@ -3,7 +3,6 @@ using JournalResearcher.DataAccess.Cores;
 using JournalResearcher.DataAccess.Data.Models;
 using JournalResearcher.DataAccess.Repository;
 using JournalResearcher.DataAccess.ViewModel;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,28 +14,30 @@ namespace JournalResearcher.Logic.Service
     {
         Task Add(JournalViewModel model);
 
-        IEnumerable<JournalItem> QueryProduct(int page, int count, JournalFilter filterExpression = null,
+        IEnumerable<JournalItem> QueryThesis(int page, int count, JournalFilter filterExpression = null,
             string orderByExpression = null);
 
         JournalItem ApproveJournal(ApproveViewModel model);
+        JournalItem RejectJournalWithComment();
         IEnumerable<JournalItem> GetJournalForApplicant(string userId);
         IEnumerable<JournalItem> GetAllThesis();
         bool IfJournalAlreadyExist(string title);
+        CounterModel<JournalItem> QueryJournalCount(int page, int count, JournalFilter filter = null, string expression = null);
     }
 
     public class JournalService : IJournalService
     {
         private readonly IApplicantService _applicantService;
-        private readonly IMapper _mapper;
+
         private readonly IJournalRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public JournalService(IJournalRepository repository, IUnitOfWork unitOfWork, IMapper mapper,
+        public JournalService(IJournalRepository repository, IUnitOfWork unitOfWork,
             IApplicantService applicantService)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
+
             _applicantService = applicantService;
         }
 
@@ -44,7 +45,7 @@ namespace JournalResearcher.Logic.Service
         {
             try
             {
-                var entity = _mapper.Map<JournalViewModel, Journal>(model);
+                var entity = Mapper.Map<JournalViewModel, Journal>(model);
                 entity.DateSubmitted = DateTime.UtcNow;
                 entity.Applicant = await _applicantService.GetById(model.ApplicantId);
                 entity.IsApproved = false;
@@ -59,11 +60,12 @@ namespace JournalResearcher.Logic.Service
             }
         }
 
-        public IEnumerable<JournalItem> QueryProduct(int page, int count, JournalFilter filterExpression = null,
+        public IEnumerable<JournalItem> QueryThesis(int page, int count, JournalFilter filterExpression = null,
             string orderByExpression = null)
         {
             var orderBy = OrderExpression.Deserializer(orderByExpression);
-            var entities = _repository.GetJournalPaged(page, count, filterExpression, orderBy).Where(x => x.Applicant.Id == orderByExpression);
+            //var entities = _repository.GetJournalPaged(page, count, filterExpression, orderBy).Where(x => x.Applicant.Id == orderByExpression);
+            var entities = _repository.GetJournalPaged(page, count, filterExpression, orderBy).ToList();
             return ProcessQuery(entities);
         }
 
@@ -74,22 +76,22 @@ namespace JournalResearcher.Logic.Service
             else if (model.Action == "Reject") entity.IsApproved = false;
             _repository.Update(entity);
             _unitOfWork.SaveChanges();
-            return _mapper.Map<Journal, JournalItem>(entity);
+            return Mapper.Map<Journal, JournalItem>(entity);
         }
 
 
 
         public IEnumerable<JournalItem> GetJournalForApplicant(string userId)
         {
-            var entities = _repository.Table.Include(x => x.Applicant).Where(x => x.Applicant.Id == userId).ToList();
-            // var entities = _repository.Fetch(x => x.Applicant.Id == userId).Include(x => x.Applicant).ToList();
+            //  var entities = _repository.Table.Include(x => x.Applicant).Where(x => x.Applicant.Id == userId).ToList();
+            var entities = _repository.Fetch(x => x.Applicant.Id == userId, includeProperties: "Applicant").ToList();
             return ProcessQuery(entities);
         }
 
         public IEnumerable<JournalItem> GetAllThesis()
         {
             var entities = _repository.GetAll();
-            return ProcessQuery(entities);
+            return Mapper.Map<IEnumerable<Journal>, IEnumerable<JournalItem>>(entities);
         }
 
         public bool IfJournalAlreadyExist(string title)
@@ -97,19 +99,26 @@ namespace JournalResearcher.Logic.Service
             return _repository.Table.Any(x => x.Title == title);
         }
 
+        public CounterModel<JournalItem> QueryJournalCount(int page, int count, JournalFilter filter = null, string expression = null)
+        {
+            int totalCount;
+            var orderBy = OrderExpression.Deserializer(expression);
+            var entities = _repository.GetJournalPaged(page, count, out totalCount, filter, orderBy).ToList();
+            return new CounterModel<JournalItem>()
+            {
+                Total = totalCount,
+                Items = ProcessQuery(entities)
+            };
+        }
+
         private IEnumerable<JournalItem> ProcessQuery(IEnumerable<Journal> entities)
         {
             return entities.Where(x => x.Id > 0).Select(x => new JournalItem
             {
                 Title = x.Title,
+                Id = x.Id,
                 Abstract = x.Abstract,
                 Author = x.Author,
-                Applicant = new UserModel
-                {
-                    FirstName = x.Applicant.FirstName,
-                    LastName = x.Applicant.LastName,
-                    Email = x.Applicant.Email
-                },
                 IsApproved = x.IsApproved,
                 Reference = x.Reference,
                 ThesisFileUrl = x.ThesisFile,
@@ -122,6 +131,11 @@ namespace JournalResearcher.Logic.Service
             var entity = _repository.Get(id);
             if (entity == null) throw new NullReferenceException("Data Not Found");
             return entity;
+        }
+
+        public JournalItem RejectJournalWithComment()
+        {
+            throw new NotImplementedException();
         }
     }
 }

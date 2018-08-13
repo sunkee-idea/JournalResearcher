@@ -15,6 +15,8 @@ namespace JournalResearcher.Logic.Service
     {
         public async Task<string> FileUploader(IFormFile file, string uploadFolderPath)
         {
+            int maxContent = 5 * 1024 * 1024; //5 MB
+
             if (file == null || file.Length == 0)
                 throw new ArgumentNullException(string.Format("{0}", "File Cannot Be Empty"));
             //Create Folder If Not Exist
@@ -22,8 +24,8 @@ namespace JournalResearcher.Logic.Service
             if (!Directory.Exists(uploadFolderPath)) Directory.CreateDirectory(uploadFolderPath);
 
             //Check File size maybe is not too large
-            if (file.Length > (5 * 1024))
-                throw new ApplicationException("File is too large");
+            if (file.Length > maxContent)
+                throw new ApplicationException(string.Format("{0}", "Maximum upload file allowed is " + (maxContent / 1024).ToString()));
             //Check if extension is valid:: which are pdf and docx or doc;
 
 

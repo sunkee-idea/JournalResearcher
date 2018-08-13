@@ -17,7 +17,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div *ngIf="notificationType=='success'" [class]="notificationType=='success' ? 'alert alert-success' : ''">{{notificationMsg}}</div>
-                  <div *ngIf="notificationType=='error'" [class]="notificationType=='error' ? 'alert alert-danger' : ''">{{notificationMsg}}</div>
+                  <div *ngIf="notificationType=='error'" [class]="notificationType=='error' ? 'alert alert-danger' : ''"><i [class]="notificationType =='error' ? 'fa fa-times' : ''"></i>{{notificationMsg}}</div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group" [ngClass]="{'has-error': signinform.get('email').errors && signinform.get('email').touched}">

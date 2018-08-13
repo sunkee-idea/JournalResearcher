@@ -3211,6 +3211,12 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "OctoPack/3.6.3": {
+        "type": "package",
+        "build": {
+          "build/OctoPack.targets": {}
+        }
+      },
       "Remotion.Linq/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -5302,7 +5308,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "5.0.1",
           "LinqKit.Microsoft.EntityFrameworkCore": "1.1.15",
           "Microsoft.AspNetCore.All": "2.1.2",
-          "Microsoft.EntityFrameworkCore.Tools": "2.1.1"
+          "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
+          "OctoPack": "3.6.3"
         },
         "compile": {
           "bin/placeholder/JournalResearcher.DataAccess.dll": {}
@@ -8512,6 +8519,28 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "OctoPack/3.6.3": {
+      "sha512": "SAKPv9edH3tmVh5jHxWaGS8Z3HhPHz4m6ussmeE1Kgmn3nrkL+az+xuDxV8SjEkVxn+dXm4+Jqw3NJjGj0e4PA==",
+      "type": "package",
+      "path": "octopack/3.6.3",
+      "files": [
+        "build/NuGet.exe",
+        "build/NuGet.exe.config",
+        "build/NuGet.exe.readme.txt",
+        "build/OctoPack.Tasks.dll",
+        "build/OctoPack.Tasks.pdb",
+        "build/OctoPack.targets",
+        "content/net35/_._",
+        "content/net40/_._",
+        "content/netcore45/_._",
+        "content/portable-net4+sl50+netcore45+wpa81+wp8/_._",
+        "license.txt",
+        "octopack.3.6.3.nupkg.sha512",
+        "octopack.nuspec",
+        "tools/Install.ps1",
+        "tools/Uninstall.ps1"
       ]
     },
     "Remotion.Linq/2.2.0": {
@@ -13675,7 +13704,8 @@
       "LinqKit.Microsoft.EntityFrameworkCore >= 1.1.15",
       "Microsoft.AspNetCore.All >= 2.1.2",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "OctoPack >= 3.6.3"
     ]
   },
   "packageFolders": {
@@ -13744,6 +13774,10 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "OctoPack": {
+            "target": "Package",
+            "version": "[3.6.3, )"
           }
         },
         "imports": [

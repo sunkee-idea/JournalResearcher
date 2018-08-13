@@ -11,7 +11,7 @@ export const routes ={
   GETTHESIS: BASEURL + "journal/get/",
 
   GETALLTHESIS: BASEURL + "journal/getThesis",
-  APPROVE:BASEURL + "joural/approveThesis"
+  APPROVE:BASEURL + "journal/approveThesis"
   
 
 

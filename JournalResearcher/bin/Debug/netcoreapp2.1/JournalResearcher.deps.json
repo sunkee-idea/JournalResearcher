@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "9e575328aa7240691bae19ba1af93077ff95db77"
+    "signature": "21be867a68f3326a597d1ba9bcc53386c769414b"
   },
   "compilationOptions": {
     "defines": [
@@ -34,7 +34,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
-          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.1.1"
+          "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore": "2.1.1",
+          "OctoPack": "3.6.3"
         },
         "runtime": {
           "JournalResearcher.dll": {}
@@ -574,6 +575,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "OctoPack/3.6.3": {},
       "System.Composition/1.0.31": {
         "dependencies": {
           "System.Composition.AttributedModel": "1.0.31",
@@ -716,7 +718,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "5.0.1",
           "LinqKit.Microsoft.EntityFrameworkCore": "1.1.15",
           "Microsoft.AspNetCore.All": "2.1.2",
-          "Microsoft.EntityFrameworkCore.Tools": "2.1.1"
+          "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
+          "OctoPack": "3.6.3"
         },
         "runtime": {
           "JournalResearcher.DataAccess.dll": {}
@@ -731,7 +734,8 @@
           "JournalResearcher.DataAccess": "1.0.0",
           "LinqKit.Microsoft.EntityFrameworkCore": "1.1.15",
           "Microsoft.AspNetCore.All": "2.1.2",
-          "Microsoft.EntityFrameworkCore.Tools": "2.1.1"
+          "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
+          "OctoPack": "3.6.3"
         },
         "runtime": {
           "JournalResearcher.Logic.dll": {}
@@ -4396,6 +4400,13 @@
       "sha512": "sha512-/VaEPsEgj3p5YPLLxbYc6rB8gYIPf+8wCWOAlAe3l/SP0DXcefZ58uJer1ToBKIpwbPN5LkgTXtvilze5UJoYQ==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "OctoPack/3.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SAKPv9edH3tmVh5jHxWaGS8Z3HhPHz4m6ussmeE1Kgmn3nrkL+az+xuDxV8SjEkVxn+dXm4+Jqw3NJjGj0e4PA==",
+      "path": "octopack/3.6.3",
+      "hashPath": "octopack.3.6.3.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",

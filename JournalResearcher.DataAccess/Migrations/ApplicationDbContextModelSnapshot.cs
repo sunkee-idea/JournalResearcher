@@ -140,6 +140,29 @@ namespace JournalResearcher.DataAccess.Migrations
                     b.ToTable("RefreshTokens");
                 });
 
+            modelBuilder.Entity("JournalResearcher.DataAccess.Data.Models.RejectJournal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<string>("Comment");
+
+                    b.Property<int?>("JournalId");
+
+                    b.Property<int>("RejectedJournalId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("JournalId");
+
+                    b.ToTable("RejectJournals");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -263,6 +286,17 @@ namespace JournalResearcher.DataAccess.Migrations
                     b.HasOne("JournalResearcher.DataAccess.Data.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("JournalResearcher.DataAccess.Data.Models.RejectJournal", b =>
+                {
+                    b.HasOne("JournalResearcher.DataAccess.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("JournalResearcher.DataAccess.Data.Models.Journal", "Journal")
+                        .WithMany()
+                        .HasForeignKey("JournalId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

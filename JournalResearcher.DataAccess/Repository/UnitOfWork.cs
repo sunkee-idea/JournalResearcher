@@ -1,6 +1,7 @@
-﻿using System.Threading;
+﻿using JournalResearcher.DataAccess.Data;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
-using JournalResearcher.DataAccess.Data;
 
 namespace JournalResearcher.DataAccess.Repository
 {
@@ -27,6 +28,25 @@ namespace JournalResearcher.DataAccess.Repository
         public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {
             return Context.SaveChangesAsync(cancellationToken);
+        }
+
+
+        private bool disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    Context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

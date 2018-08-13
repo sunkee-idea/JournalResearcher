@@ -25,6 +25,8 @@ import { ApplicantModule } from './applicant/applicant.module';
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user/user-add/user-add.component';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -55,6 +57,7 @@ import { RouterModule } from '@angular/router';
       preventDuplicates: true,
 
     }),
+    NgbModule.forRoot(),
     Approuting
 //    RouterModule.forRoot([
 //      { path: '', component: SignUpComponent},

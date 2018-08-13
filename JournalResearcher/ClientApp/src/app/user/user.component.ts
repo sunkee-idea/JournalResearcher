@@ -10,19 +10,27 @@ import { IThesis } from '../core/models/IThesis';
 })
 export class UserComponent implements OnInit {
   theses: IThesis[];
-  isLoading:boolean = false;
+  isLoading: boolean = false;
+  notificationType: string;
+  notificationMsg: string;
   constructor(private auth:AuthService,private apiService: ServerService) { }
 
   ngOnInit() {
+   this.getTheses();
+  }
+
+
+  getTheses() {
     this.isLoading = true;
     this.apiService.getThesis(this.auth.Key).subscribe((res) => {
         this.isLoading = false;
-      this.theses = res;
-        console.log(this.theses);
+        this.theses = res;
+        //console.log(this.theses);
       },
       error => {
         this.isLoading = false;
-        console.log(error);
+        this.notificationMsg = "Error Occurred while fetching Data,try reload the page";
+        //console.log(error);
       });
   }
 

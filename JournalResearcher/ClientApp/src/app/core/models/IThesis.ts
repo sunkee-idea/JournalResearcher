@@ -7,5 +7,13 @@ export interface IThesis {
   thesisDateTime: string;
   applicantId: string;
   thesisFile: string | any;
+  isApproved?: boolean;
+  action?:string;
   
+}
+
+
+export interface IPaginationModel {
+  items: IThesis[],
+  total: number
 }

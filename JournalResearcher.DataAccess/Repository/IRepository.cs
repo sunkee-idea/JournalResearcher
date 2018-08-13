@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace JournalResearcher.DataAccess.Repository
 {
@@ -10,6 +9,11 @@ namespace JournalResearcher.DataAccess.Repository
     {
         T Get(int id);
         IEnumerable<T> GetAll();
+
+        //        IEnumerable<T> GetObjectGraph(
+        //            Expression<Func<T, bool>> filter = null,
+        //            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        //            string includeProperties = "");
         IQueryable<T> Table { get; }
 
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
@@ -19,7 +23,7 @@ namespace JournalResearcher.DataAccess.Repository
 
         IQueryable<T> Fetch(Expression<Func<T, bool>> predicate,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-            int? page = null, int? pageSize = null);
+            int? page = null, int? pageSize = null, string includeProperties = "");
 
         int Count(Expression<Func<T, bool>> predicate);
 

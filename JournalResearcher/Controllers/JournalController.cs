@@ -6,7 +6,6 @@ using System;
 using System.Data;
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace JournalResearcher.Controllers
 {
@@ -26,24 +25,30 @@ namespace JournalResearcher.Controllers
             _uploadService = uploadService;
         }
 
-        [Route("getThesis")]
+
         [HttpGet("getThesis")]
-        public IActionResult GetThesis()
+        public IActionResult Get(string filter, int page, int pageSize, string orderBy)
         {
-            return Ok(_journalService.GetAllThesis());
+
+
+            var filtered = JournalFilter.Deserializer(filter);
+            var response = _journalService.QueryJournalCount(page, pageSize, filtered, orderBy);
+            return Ok(response);
+
         }
 
-        [Route("approveThesis")]
-        [HttpPost("approveThesis")]
+
+        [HttpPut("approveThesis")]
         public IActionResult ApproveThesis([FromBody] ApproveViewModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            _journalService.ApproveJournal(model);
             return Ok();
         }
 
         // GET: api/Journal/userId
-        [Route("get/{userId}")]
+
         [HttpGet("get/{userId}")]
         public IActionResult GetJournal(string userId)
         {
@@ -52,7 +57,7 @@ namespace JournalResearcher.Controllers
             return Ok(journal);
         }
 
-      
+
         // POST: api/Journal
         [HttpPost("create")]
         public async Task<IActionResult> Post([FromForm] JournalViewModel model)
@@ -66,15 +71,15 @@ namespace JournalResearcher.Controllers
                 var fileUploadPath = Path.Combine(_hostingEnvironment.WebRootPath, "upload/thesisFile");
                 model.ThesisFileUrl = await _uploadService.FileUploader(model.ThesisFile, fileUploadPath);
                 await _journalService.Add(model);
-                return Ok("Success");
+                return Ok(model);
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest("Cannot connect to the server at the moment, try again");
             }
         }
 
-      
-      
+
+
     }
 }

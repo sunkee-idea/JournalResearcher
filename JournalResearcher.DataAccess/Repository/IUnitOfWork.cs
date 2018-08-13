@@ -8,5 +8,6 @@ namespace JournalResearcher.DataAccess.Repository
         int SaveChanges();
         Task<int> SaveChangesAsync();
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        void Dispose();
     }
 }

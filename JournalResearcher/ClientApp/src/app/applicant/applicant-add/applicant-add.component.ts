@@ -12,12 +12,12 @@ export class ApplicantAddComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
   ngOnInit() {
-    if (this.ThesisUploader.nativeElement.value = '') {
+    if (this.ThesisUploader.nativeElement.value === '') {
       alert('File cannot be empty');
     }
-    this.ValidateField();
+    this.validateField();
   }
-  ValidateField() {
+  validateField() {
     this.addthesisform = this.fb.group({
       title: ['', Validators.required],
       abstract: ['', Validators.required],

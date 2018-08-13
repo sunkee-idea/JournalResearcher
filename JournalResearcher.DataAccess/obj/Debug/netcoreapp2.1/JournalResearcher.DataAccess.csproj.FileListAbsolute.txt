@@ -8,3 +8,4 @@ C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalR
 C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.AssemblyInfo.cs
 C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.dll
 C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.pdb
+C:\Users\Sunkee\Documents\Visual Studio 2017\Projects\JournalResearcher\JournalResearcher.DataAccess\obj\Debug\netcoreapp2.1\JournalResearcher.DataAccess.csprojAssemblyReference.cache

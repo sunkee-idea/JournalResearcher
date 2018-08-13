@@ -46,6 +46,7 @@ export class SignInComponent implements OnInit {
       if (token.Role === constants.LEVEL_ACCESS.u) {
         this.router.navigate(["/applicant/home"]);
       } else if (token.Role === constants.LEVEL_ACCESS.a) {
+        alert("it is admin");
         this.router.navigate(["/admin"]);
       } else {
         this.router.navigate(["/login"]);
